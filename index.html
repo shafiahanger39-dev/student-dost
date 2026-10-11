@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#5146e5">
+<title>Student Dost</title>
+<style>
+:root{--bg:#f5f7ff;--card:#fff;--ink:#172033;--muted:#65708a;--primary:#5146e5;--soft:#ecebff;--line:#e5e8f2;--green:#12805c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{background:linear-gradient(135deg,#5146e5,#7c6df4);color:white;padding:22px 18px 26px;border-radius:0 0 24px 24px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:10px;max-width:900px;margin:auto}.brand{font-size:23px;font-weight:800;letter-spacing:-.5px}.tag{font-size:12px;opacity:.9}.profile-pill{border:1px solid #ffffff66;border-radius:999px;padding:8px 12px;background:#ffffff18;color:white}
+header h1{max-width:900px;margin:25px auto 4px;font-size:27px;line-height:1.15}header p{max-width:900px;margin:8px auto 0;opacity:.9}
+main{max-width:900px;margin:18px auto 92px;padding:0 14px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:-2px}.stat,.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:15px;box-shadow:0 4px 16px #202e5908}.stat strong{display:block;font-size:24px}.stat span{font-size:12px;color:var(--muted)}
+.tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;background:#e9eaff;padding:6px;border-radius:16px;margin:18px 0}.tab{border:0;border-radius:12px;background:transparent;color:#555d79;padding:10px 4px;font-size:12px;font-weight:700}.tab.active{background:white;color:var(--primary);box-shadow:0 2px 8px #202e5910}
+section.page{display:none}section.page.active{display:block}.section-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:20px 2px 12px}.section-head h2{margin:0;font-size:20px}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.subject{display:flex;align-items:center;gap:12px}.emoji{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:var(--soft);font-size:22px}.subject h3{font-size:15px;margin:0 0 2px}.subject p{font-size:12px;color:var(--muted);margin:0}
+button,.button{cursor:pointer;border:0;border-radius:12px;padding:11px 14px;background:var(--primary);color:#fff;font-weight:700;font-size:14px}button.secondary{background:var(--soft);color:var(--primary)}button.ghost{background:#f1f3fa;color:#303950}button.danger{background:#fff0f0;color:#b42318}button:active{transform:scale(.99)}
+input,select,textarea{width:100%;border:1px solid #dce1ee;border-radius:12px;padding:12px;background:white;color:var(--ink);font:inherit;outline-color:var(--primary)}textarea{min-height:100px;resize:vertical}label{display:block;font-size:13px;font-weight:700;margin:12px 0 6px}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.form-actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}.task{display:flex;align-items:flex-start;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.task:last-child{border-bottom:0}.task input{width:18px;height:18px;margin-top:3px}.task .task-text{flex:1}.task.done .task-text{text-decoration:line-through;color:#8790a4}.task small{display:block;color:var(--muted);margin-top:3px}.note{padding:13px 0;border-bottom:1px solid var(--line)}.note:last-child{border-bottom:0}.note h3{margin:0 0 5px;font-size:15px}.note p{white-space:pre-wrap;margin:0 0 10px;color:#4b556b}.chatbox{background:#f7f7ff;border:1px solid var(--line);border-radius:16px;padding:12px;min-height:170px;margin:12px 0}.bubble{max-width:95%;padding:11px 13px;border-radius:14px;margin:7px 0;white-space:pre-wrap}.bubble.bot{background:white;border:1px solid var(--line)}.bubble.user{background:var(--primary);color:white;margin-left:auto}.notice{background:#fff8e5;border:1px solid #f1dda3;border-radius:13px;padding:12px;color:#76550b;font-size:13px}.quiz-option{display:block;width:100%;text-align:left;margin:8px 0;background:#f2f3ff;color:var(--ink);border:1px solid var(--line)}.quiz-option.correct{background:#e7f8ef;border-color:#86d4ad}.quiz-option.wrong{background:#fff0f0;border-color:#efaaaa}.empty{padding:22px;text-align:center;color:var(--muted)}.progress{height:8px;background:#eceef7;border-radius:99px;overflow:hidden;margin-top:8px}.progress span{display:block;height:100%;background:var(--primary);width:0}
+footer{position:fixed;bottom:0;left:0;right:0;background:#ffffffed;backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:9px 8px calc(9px + env(safe-area-inset-bottom));display:flex;justify-content:center;gap:3px;z-index:10}.foot-tab{background:transparent;color:#66708a;padding:7px 5px;flex:1;max-width:150px;font-size:11px}.foot-tab.active{color:var(--primary);background:var(--soft)}
+@media(min-width:700px){header{padding:25px 28px 30px}.stats{gap:14px}.stat{padding:20px}.tabs{max-width:500px}.foot-tab{font-size:13px}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:390px){.stat strong{font-size:21px}.stat{padding:12px}.tab{font-size:11px}.form-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+ <div class="top"><div><div class="brand">🎓 Student Dost</div><div class="tag">Your friendly study companion</div></div><button class="profile-pill" id="profileShortcut">My profile</button></div>
+ <h1 id="welcome">Hey, student! 👋</h1><p>Chhote steps, better learning. Let’s make today count.</p>
+</header>
+<main>
+ <div class="stats">
+  <div class="stat"><strong id="doneCount">0</strong><span>Tasks completed</span></div>
+  <div class="stat"><strong id="totalCount">0</strong><span>Total study tasks</span></div>
+  <div class="stat"><strong id="progressPct">0%</strong><span>Overall progress</span></div>
+ </div>
+ <nav class="tabs" aria-label="Main navigation">
+  <button class="tab active" data-page="home">🏠 Home</button><button class="tab" data-page="planner">🗓 Planner</button><button class="tab" data-page="notes">📝 Notes</button><button class="tab" data-page="tutor">🤖 AI Tutor</button><button class="tab" data-page="quiz">❓ Quiz</button>
+ </nav>
+ <section id="home" class="page active">
+  <div class="section-head"><h2>Today’s overview</h2><span class="muted" id="todayLabel"></span></div>
+  <div class="card"><div style="display:flex;justify-content:space-between;gap:10px;align-items:center"><div><b>Your study progress</b><div class="muted" style="font-size:13px" id="progressText">Start by adding a study task.</div></div><span style="font-size:26px">✨</span></div><div class="progress"><span id="progressBar"></span></div></div>
+  <div class="section-head"><h2>Your subjects</h2><button class="secondary" data-go="planner">Add task +</button></div>
+  <div class="grid">
+   <div class="card subject"><div class="emoji">⚛️</div><div><h3>Physics</h3><p>Understand the why</p></div></div>
+   <div class="card subject"><div class="emoji">🧪</div><div><h3>Chemistry</h3><p>Learn step by step</p></div></div>
+   <div class="card subject"><div class="emoji">🧬</div><div><h3>Biology</h3><p>Explore life</p></div></div>
+   <div class="card subject"><div class="emoji">📚</div><div><h3>English</h3><p>Read and express</p></div></div>
+  </div>
+  <div class="section-head"><h2>Next up</h2><button class="ghost" data-go="planner">View planner</button></div><div class="card" id="homeTasks"><div class="empty">No tasks yet. Add your first task in Study Planner.</div></div>
+ </section>
+ <section id="planner" class="page">
+  <div class="section-head"><h2>Study Planner</h2><span class="muted">One step at a time</span></div>
+  <div class="card">
+   <form id="taskForm"><label for="taskTitle">What will you study?</label><input id="taskTitle" required maxlength="100" placeholder="e.g. Revise Motion in a Straight Line">
+    <div class="form-row"><div><label for="taskSubject">Subject</label><select id="taskSubject"><option>Physics</option><option>Chemistry</option><option>Biology</option><option>English</option><option>Maths</option><option>Other</option></select></div><div><label for="taskDate">Due date</label><input type="date" id="taskDate"></div></div>
+    <div class="form-actions"><button type="submit">Add study task</button></div>
+   </form>
+  </div>
+  <div class="section-head"><h2>Your tasks</h2><button class="ghost" id="clearDone">Clear completed</button></div><div class="card" id="taskList"><div class="empty">No tasks yet — add one above.</div></div>
+ </section>
+ <section id="notes" class="page">
+  <div class="section-head"><h2>Notes & revision</h2><span class="muted">Saved on this device</span></div>
+  <div class="card"><form id="noteForm"><label for="noteTitle">Note title</label><input id="noteTitle" required maxlength="100" placeholder="e.g. Newton's Laws"><label for="noteSubject">Subject</label><select id="noteSubject"><option>Physics</option><option>Chemistry</option><option>Biology</option><option>English</option><option>Other</option></select><label for="noteBody">Your note</label><textarea id="noteBody" required maxlength="10000" placeholder="Write a definition, summary, or revision point..."></textarea><div class="form-actions"><button type="submit">Save note</button></div></form></div>
+  <div class="section-head"><h2>Saved notes</h2></div><div class="card" id="noteList"><div class="empty">No notes saved yet.</div></div>
+ </section>
+ <section id="tutor" class="page">
+  <div class="section-head"><h2>Study Buddy</h2><span class="muted">Learning helper</span></div>
+  <div class="notice">Live AI Tutor: ask questions in simple English, Hindi, or Urdu. Your API key stays on the server.</div>
+  <div class="chatbox" id="chatbox"><div class="bubble bot">Hi! 👋 Ask me about study planning, revision methods, or try “What is a good study routine?”</div></div>
+  <form id="chatForm"><label for="chatInput">Your question</label><textarea id="chatInput" required maxlength="1000" placeholder="Ask a study question..." style="min-height:75px"></textarea><div class="form-actions"><button type="submit">Send message</button><button type="button" class="secondary" id="clearChat">Clear chat</button></div></form>
+ </section>
+ <section id="quiz" class="page">
+  <div class="section-head"><h2>Quick science quiz</h2><span class="muted">Practice mode</span></div>
+  <div class="card" id="quizCard"><div class="muted" id="quizCount">Question 1 of 5</div><h3 id="quizQuestion">Loading question…</h3><div id="quizOptions"></div><div id="quizFeedback" class="muted"></div><div class="form-actions"><button id="nextQuestion" type="button" disabled>Next question →</button><button id="restartQuiz" type="button" class="secondary">Restart</button></div></div>
+  <p class="muted" style="font-size:12px">Sample practice questions for learning. Check your official syllabus for exam requirements.</p>
+ </section>
+ <section id="profile" class="page">
+  <div class="section-head"><h2>Student profile</h2></div>
+  <div class="card"><form id="profileForm"><label for="studentName">Your name</label><input id="studentName" maxlength="60" placeholder="What should we call you?"><div class="form-row"><div><label for="board">Board</label><select id="board"><option>JKBOSE</option><option>CBSE</option><option>ICSE</option><option>Other</option></select></div><div><label for="className">Class</label><select id="className"><option>Class 9</option><option>Class 10</option><option selected>Class 11</option><option>Class 12</option><option>College</option><option>Other</option></select></div></div><label for="language">Preferred language</label><select id="language"><option>English</option><option>Urdu</option><option>Hindi</option><option>Kashmiri</option></select><div class="form-actions"><button type="submit">Save profile</button></div></form></div>
+  <div class="notice" style="margin-top:12px">Your notes, tasks, and profile are stored in this browser on this device. They are not automatically synced to another phone.</div>
+ </section>
+</main>
+<footer>
+ <button class="foot-tab active" data-page="home">🏠<br>Home</button><button class="foot-tab" data-page="planner">🗓<br>Planner</button><button class="foot-tab" data-page="notes">📝<br>Notes</button><button class="foot-tab" data-page="tutor">🤖<br>Tutor</button><button class="foot-tab" data-page="profile">👤<br>Profile</button>
+</footer>
+<script>
+const $=id=>document.getElementById(id);
+const read=(key,fallback)=>{try{return JSON.parse(localStorage.getItem('studentDost_'+key))??fallback}catch{return fallback}};
+const save=(key,value)=>localStorage.setItem('studentDost_'+key,JSON.stringify(value));
+let tasks=read('tasks',[]), notes=read('notes',[]), profile=read('profile',{name:'',board:'JKBOSE',className:'Class 11',language:'English'});
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function showPage(page){document.querySelectorAll('.page').forEach(s=>s.classList.toggle('active',s.id===page));document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===page));window.scrollTo({top:0,behavior:'smooth'});}
+document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
+document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.go)));
+$('profileShortcut').onclick=()=>showPage('profile');
+$('todayLabel').textContent=new Date().toLocaleDateString(undefined,{month:'short',day:'numeric'});
+function renderTasks(){
+ const done=tasks.filter(t=>t.done).length,total=tasks.length,pct=total?Math.round(done/total*100):0;
+ $('doneCount').textContent=done;$('totalCount').textContent=total;$('progressPct').textContent=pct+'%';$('progressBar').style.width=pct+'%';$('progressText').textContent=total?`${done} of ${total} tasks completed`:'Start by adding a study task.';
+ const html=arr=>arr.length?arr.map(t=>`<div class="task ${t.done?'done':''}"><input type="checkbox" data-task-check="${t.id}" ${t.done?'checked':''} aria-label="Mark task complete"><div class="task-text">${esc(t.title)}<small>${esc(t.subject)}${t.date?' · '+esc(t.date):''}</small></div><button class="danger" data-task-delete="${t.id}" aria-label="Delete task">×</button></div>`).join(''):'<div class="empty">No tasks yet — add one above.</div>';
+ $('taskList').innerHTML=html(tasks);$('homeTasks').innerHTML=tasks.length?html(tasks.filter(t=>!t.done).slice(0,3)):'<div class="empty">No tasks yet. Add your first task in Study Planner.</div>';
+ document.querySelectorAll('[data-task-check]').forEach(el=>el.onchange=()=>{tasks=tasks.map(t=>t.id===el.dataset.taskCheck?{...t,done:el.checked}:t);save('tasks',tasks);renderTasks()});
+ document.querySelectorAll('[data-task-delete]').forEach(el=>el.onclick=()=>{tasks=tasks.filter(t=>t.id!==el.dataset.taskDelete);save('tasks',tasks);renderTasks()});
+}
+$('taskForm').onsubmit=e=>{e.preventDefault();tasks.unshift({id:crypto.randomUUID?crypto.randomUUID():String(Date.now()),title:$('taskTitle').value.trim(),subject:$('taskSubject').value,date:$('taskDate').value,done:false});save('tasks',tasks);$('taskForm').reset();renderTasks();};
+$('clearDone').onclick=()=>{tasks=tasks.filter(t=>!t.done);save('tasks',tasks);renderTasks()};
+function renderNotes(){$('noteList').innerHTML=notes.length?notes.map(n=>`<div class="note"><h3>${esc(n.title)} <span class="muted" style="font-size:12px">· ${esc(n.subject)}</span></h3><p>${esc(n.body)}</p><button class="danger" data-note-delete="${n.id}">Delete note</button></div>`).join(''):'<div class="empty">No notes saved yet.</div>';document.querySelectorAll('[data-note-delete]').forEach(b=>b.onclick=()=>{notes=notes.filter(n=>n.id!==b.dataset.noteDelete);save('notes',notes);renderNotes()})}
+$('noteForm').onsubmit=e=>{e.preventDefault();notes.unshift({id:crypto.randomUUID?crypto.randomUUID():String(Date.now()),title:$('noteTitle').value.trim(),subject:$('noteSubject').value,body:$('noteBody').value.trim()});save('notes',notes);$('noteForm').reset();renderNotes()};
+function applyProfile(){$('welcome').textContent=profile.name?`Hey, ${profile.name}! 👋`:'Hey, student! 👋';$('studentName').value=profile.name||'';$('board').value=profile.board||'JKBOSE';$('className').value=profile.className||'Class 11';$('language').value=profile.language||'English'}
+$('profileForm').onsubmit=e=>{e.preventDefault();profile={name:$('studentName').value.trim(),board:$('board').value,className:$('className').value,language:$('language').value};save('profile',profile);applyProfile();alert('Profile saved on this device!');showPage('home')};
+const replies=[
+[/routine|schedule|plan/i,'Try this simple routine: 1) Choose 2–3 clear tasks. 2) Study in focused 25-minute blocks with short breaks. 3) Test yourself without looking at notes. 4) Review what you learned at the end. Adjust it to your needs.'],
+[/revise|revision|remember|memor/i,'For revision, use active recall: close your book and explain the idea in your own words. Then check what you missed. Revisit it tomorrow and again a few days later.'],
+[/exam|stress|nervous/i,'Make a short list of the topics you can realistically revise today. Start with one small task, take breaks, sleep adequately, and ask a teacher for help with topics that remain confusing.'],
+[/physics|force|motion|energy/i,'I can offer a study tip: write down the key definition, units, and formula; then solve one worked example and one similar question yourself. For a reliable explanation of a specific concept, connect a real AI tutor service or ask your teacher.'],
+[/chemistry|atom|periodic/i,'Try making a small concept map, learn the key terms, and practise explaining why a trend or reaction happens. This demo tutor does not have a live AI engine connected yet.'],
+[/biology|plant|cell|photosynthesis/i,'Try drawing the process or structure from memory, label it, and then compare it with your textbook. This demo tutor does not have a live AI engine connected yet.']
+];
+$('chatForm').onsubmit=async e=>{
+ e.preventDefault();
+ const input=$('chatInput'); const q=input.value.trim(); if(!q)return;
+ const box=$('chatbox'); const sendBtn=$('chatForm').querySelector('button[type="submit"]');
+ box.insertAdjacentHTML('beforeend',`<div class="bubble user">${esc(q)}</div>`);
+ input.value=''; input.disabled=true; sendBtn.disabled=true; sendBtn.textContent='Thinking…';
+ const loading=document.createElement('div'); loading.className='bubble bot'; loading.textContent='Student Dost is thinking…'; loading.id='tutorLoading'; box.appendChild(loading); box.scrollTop=box.scrollHeight;
+ try {
+   const response=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q})});
+   const data=await response.json().catch(()=>({}));
+   if(!response.ok) throw new Error(data.error || 'The AI Tutor could not answer right now.');
+   loading.textContent=data.reply || 'I could not generate a reply. Please try again.';
+ } catch(err) {
+   loading.textContent='Could not connect to the live AI Tutor. Check that Student Dost is deployed with GEMINI_API_KEY configured, then try again. ('+err.message+')';
+ } finally {
+   loading.removeAttribute('id'); input.disabled=false; sendBtn.disabled=false; sendBtn.textContent='Send message'; input.focus(); box.scrollTop=box.scrollHeight;
+ }
+};
+$('clearChat').onclick=()=>{$('chatbox').innerHTML='<div class="bubble bot">Hi! 👋 Ask me about study planning, revision methods, or try “What is a good study routine?”</div>'};
+const questions=[
+{q:'What is the SI unit of force?',o:['Joule','Newton','Watt','Pascal'],a:1,why:'Force is measured in newtons (N).'},
+{q:'Which part of a plant cell contains chlorophyll?',o:['Nucleus','Vacuole','Chloroplast','Cell wall'],a:2,why:'Chloroplasts contain chlorophyll and are the main site of photosynthesis.'},
+{q:'The atomic number of an element equals the number of…',o:['Neutrons','Protons','Shells','Molecules'],a:1,why:'Atomic number is the number of protons in the nucleus.'},
+{q:'Which gas do plants take in for photosynthesis?',o:['Oxygen','Nitrogen','Carbon dioxide','Hydrogen'],a:2,why:'Plants use carbon dioxide and water to make sugars using light energy.'},
+{q:'What is the SI unit of energy?',o:['Newton','Joule','Ampere','Kelvin'],a:1,why:'The SI unit of energy is the joule (J).'}
+];let qi=0,score=0,answered=false;
+function renderQuiz(){answered=false;const q=questions[qi];$('quizCount').textContent=qi<questions.length?`Question ${qi+1} of ${questions.length}`:`Quiz complete · Score ${score}/${questions.length}`;$('quizQuestion').textContent=qi<questions.length?q.q:'Well done!';$('quizOptions').innerHTML=qi<questions.length?q.o.map((o,i)=>`<button class="quiz-option" data-answer="${i}">${String.fromCharCode(65+i)}. ${esc(o)}</button>`).join(''):`<p>You scored ${score} out of ${questions.length}. Try again to practise.</p>`;$('quizFeedback').textContent='';$('nextQuestion').disabled=true;$('nextQuestion').textContent=qi===questions.length-1?'See results →':'Next question →';document.querySelectorAll('[data-answer]').forEach(b=>b.onclick=()=>{if(answered)return;answered=true;const chosen=Number(b.dataset.answer);if(chosen===q.a)score++;document.querySelectorAll('[data-answer]').forEach((x,i)=>{x.disabled=true;if(i===q.a)x.classList.add('correct');else if(i===chosen)x.classList.add('wrong')});$('quizFeedback').textContent=(chosen===q.a?'Correct! ':'Not quite. ')+q.why;$('nextQuestion').disabled=false})}
+$('nextQuestion').onclick=()=>{if(qi<questions.length-1){qi++;renderQuiz()}else{qi=questions.length; $('quizCount').textContent=`Quiz complete · Score ${score}/${questions.length}`;$('quizQuestion').textContent='Well done for practising!';$('quizOptions').innerHTML=`<p>Your score: <b>${score}/${questions.length}</b></p>`;$('quizFeedback').textContent='You can restart to try again.';$('nextQuestion').disabled=true}};
+$('restartQuiz').onclick=()=>{qi=0;score=0;renderQuiz()};
+applyProfile();renderTasks();renderNotes();renderQuiz();
+</script>
+</body>
+</html>
