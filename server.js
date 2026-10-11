@@ -6,7 +6,9 @@ const PORT = process.env.PORT || 3000;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 app.use(express.json({ limit: "20kb" }));
-app.use(express.static(path.join(__dirname, "public")));
+
+app.use(express.static(__dirname));
+
 
 app.get("/api/health", (_req, res) => {
   res.json({ ok: true, apiKeyConfigured: Boolean(GEMINI_API_KEY) });
