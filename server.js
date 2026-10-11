@@ -27,7 +27,7 @@ app.post("/api/chat", async (req, res) => {
     if (message.length > 1000) return res.status(400).json({ error: "Please keep your question under 1000 characters." });
 
     const apiResponse = await fetch(
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent",
       {
         method: "POST",
         headers: {
