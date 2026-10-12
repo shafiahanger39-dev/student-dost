@@ -146,5 +146,31 @@ $('nextQuestion').onclick=()=>{if(qi<questions.length-1){qi++;renderQuiz()}else{
 $('restartQuiz').onclick=()=>{qi=0;score=0;renderQuiz()};
 applyProfile();renderTasks();renderNotes();renderQuiz();
 </script>
+ 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL = "https://your-project.supabase.co";
+const SUPABASE_KEY = "sb_publishable_JbYgeqx9lPOXHV8yXnLxuQ_k2VGcaJS";
+
+const supabaseClient = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
+async function loadStudyNotes() {
+  const { data, error } = await supabaseClient
+    .storage
+    .from("Study-notes")
+    .list();
+
+  if (error) {
+    console.error("Notes error:", error.message);
+    return;
+  }
+
+  console.log("Study PDFs:", data);
+}
+</script>
+
 </body>
 </html>
