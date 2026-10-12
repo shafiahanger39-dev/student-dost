@@ -1,8 +1,9 @@
+
 {
   "name": "student-dost-live",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
-  "description": "Student Dost with a secure server-side Gemini AI Tutor",
+  "description": "Student Dost with secure admin, PDF notes, announcements and AI tutor",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -11,6 +12,8 @@
     "node": ">=18"
   },
   "dependencies": {
-    "express": "^4.21.2"
+    "@supabase/supabase-js": "^2.57.0",
+    "express": "^4.21.2",
+    "multer": "^2.0.2"
   }
 }
